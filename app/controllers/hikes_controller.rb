@@ -6,6 +6,7 @@ class HikesController < ApplicationController
   end
 
   def new
+    @hike = Hike.new
   end
 
   def create
