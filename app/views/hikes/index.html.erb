@@ -1,2 +1,44 @@
-<h1>Hikes#index</h1>
-<p>Find me in app/views/hikes/index.html.erb</p>
+<h1>Hikes</h1>
+<% @hike.each do |h| %>
+    <h2><%= h.name %></h2>
+    <img src="<%= h.photo %>" class="browse-hikes-image">
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  See details
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"><%= h.name %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <b>Address:</b> <%= h.address %><br>
+        Distance: <%= h.distance %> miles<br>
+        Difficulty Level:<% case h.difficulty
+            when 1 %> Easy
+            <% when 2 %> Moderate
+            <% when 3 %> Challenging
+            <% when 4 %> Difficult
+            <% when 5 %> Very Difficult
+        <% end %><br>
+        <% if h.dog_friendly == true %>
+        Dog-friendly 
+        <% end %>
+     <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
