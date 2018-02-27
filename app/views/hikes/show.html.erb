@@ -1,2 +1,14 @@
-<h1>Hikes#show</h1>
-<p>Find me in app/views/hikes/show.html.erb</p>
+<h1><%= @hike.name %></h1>
+<img src="<%= @hike.photo %>"><br>
+Address: <%= @hike.address %><br>
+Distance: <%= @hike.distance %> miles<br>
+Difficulty Level:<% case @hike.difficulty
+    when 1 %> Easy
+    <% when 2 %> Moderate
+    <% when 3 %> Challenging
+    <% when 4 %> Difficult
+    <% when 5 %> Very Difficult
+    <% end %><br>
+<% if @hike.dog_friendly == true %>
+Dog-friendly 
+<% end %>

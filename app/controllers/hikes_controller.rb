@@ -1,4 +1,5 @@
 class HikesController < ApplicationController
+  before_action :authorize_hike_view, only: :edit
   def index
     @hikes = Hike.all
   end
@@ -23,13 +24,13 @@ class HikesController < ApplicationController
   end
 
   def edit
-    @hike = Hike.find(params[:id])
+    @hike = Hike.find params[:id]
   end
 
   def update
     @hike = Hike.find params[:id] 
-    @hike = @user.hikes.new hike_params 
-    if @hike.save
+
+    if @hike.update(hike_params)
       redirect_to hikes_path
     else
       redirect_to hike_path(@hike.id)
@@ -39,7 +40,7 @@ class HikesController < ApplicationController
   def destroy
   end
 
-  def authorize_hike_edit
+  def authorize_hike_view
     @hike = Hike.find params[:id]
     if @hike.user_id != current_user.id
       redirect_to hikes_path
