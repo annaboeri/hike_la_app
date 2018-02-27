@@ -53,6 +53,7 @@ class HikesController < ApplicationController
   def create_from_existing
     @user = current_user
     @existing_hike = Hike.find(params[:id])
+    @existing_hike.id = nil
     #create new object with attributes of existing record 
     @hike = @user.hikes.new(@existing_hike.attributes)
     @hike.save
