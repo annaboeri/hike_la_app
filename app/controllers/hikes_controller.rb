@@ -1,6 +1,6 @@
 class HikesController < ApplicationController
   def index
-    @hike = Hike.all
+    @hikes = Hike.all
   end
 
   def show
@@ -37,9 +37,6 @@ class HikesController < ApplicationController
   end
 
   def destroy
-    @hike = Hike.find params[:id]
-    @hike.destroy
-    redirect_to root_path
   end
 
   def authorize_hike_edit

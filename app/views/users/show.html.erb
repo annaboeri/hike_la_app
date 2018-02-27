@@ -1,2 +1,6 @@
-<h1>My Profile</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1><%= @user.name %>'s Profile</h1>
+<h2>Future Hikes:</h2>
+<h2>Hikes Accomplished:</h2>
+<% @hikes.each do |h| %>
+<%= h.name %>
+<% end %>

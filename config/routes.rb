@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'pages/index'
-
-root 'hikes#index'
+root 'pages#index'
 resources :hikes
 resources :users
 delete '/logout' => 'sessions#destroy', as: :logout
