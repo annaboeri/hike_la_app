@@ -5,8 +5,6 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @hikes = @user.hikes
-    @hike = Hike.find params[:id]
-    @clone_hike = @hike.clone
   end
 
   def new
