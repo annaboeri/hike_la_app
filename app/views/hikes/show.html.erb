@@ -10,5 +10,10 @@ Difficulty Level:<% case @hike.difficulty
     <% when 5 %> Very Difficult
     <% end %><br>
 <% if @hike.dog_friendly == true %>
-Dog-friendly 
+Dog-friendly<br>
 <% end %>
+
+<% if @user == @hike.user %>
+<button type="button" class="btn btn-light"><%= link_to "Edit Hike", edit_hike_path %></button> 
+<% end %>
+

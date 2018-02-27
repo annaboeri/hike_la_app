@@ -1,10 +1,13 @@
 class HikesController < ApplicationController
   before_action :authorize_hike_view, only: :edit
   def index
+    @user = current_user
     @hikes = Hike.all
+
   end
 
   def show
+    @user = current_user
     @hike = Hike.find params[:id]
   end
 
@@ -46,6 +49,14 @@ class HikesController < ApplicationController
       redirect_to hikes_path
     end
   end
+
+  def create_from_existing
+    @user = current_user
+    @existing_hike = Hike.find(params[:id])
+    #create new object with attributes of existing record 
+    @hike = @user.hikes.new(@existing_hike.attributes)
+    @hike.save
+   end
 
   private
   def hike_params
