@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  body: MyString
+  author: MyString
+  hike_rating: 1
+  user: one
+  hike: one
+
+two:
+  body: MyString
+  author: MyString
+  hike_rating: 1
+  user: two
+  hike: two

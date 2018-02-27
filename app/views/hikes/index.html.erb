@@ -21,7 +21,7 @@
                             </button>
                         </div>
                     <div class="modal-body">
-                        Hike Id:  <%= hike.id %> 
+                        Hike: <%= $modal_hike = hike.attributes %>
                         Address: <%= hike.address %><br>
                         Distance: <%= hike.distance %> miles<br>
                         Difficulty Level:<% case hike.difficulty
@@ -36,11 +36,12 @@
                         <% end %>
                     </div>
                     <div class="modal-footer">
-                        <%= render '/partials/add_to_profile_buttons' %>
+                         <%= render '/partials/add_to_profile_buttons' %>
                     </div>
                     </div>
                 </div>
-                </div>    
+                </div>  
+                <!-- Modal -->  
         </div>
       <% end %>
     </div>

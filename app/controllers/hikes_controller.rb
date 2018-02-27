@@ -2,13 +2,15 @@ class HikesController < ApplicationController
   before_action :authorize_hike_view, only: :edit
   def index
     @user = current_user
-    @hikes = Hike.where :copied = false
+    @hikes = Hike.where(duplicate: nil)
+    @reviews = Review.all
 
   end
 
   def show
     @user = current_user
     @hike = Hike.find params[:id]
+    @review = Review.all 
 
   end
 
@@ -42,7 +44,6 @@ class HikesController < ApplicationController
   end
 
   def destroy
-    p "destroy action"
     @hike = Hike.find params[:id] 
     @hike.destroy
     redirect_to hikes_path 
@@ -64,11 +65,18 @@ class HikesController < ApplicationController
   def create_from_existing
     @user = current_user
     @existing_hike = Hike.find(params[:id])
-    @existing_hike.id = nil
-    @existing_hike.
-    #create new object with attributes of existing record 
-    @hike = @user.hikes.new(@existing_hike.attributes)
+    @hike = @user.hikes.new do |h|
+      h.id = nil
+      h.duplicate = true
+      h.name =  @existing_hike.name
+      h.address =  @existing_hike.address
+      h.distance =  @existing_hike.distance
+      h.difficulty =  @existing_hike.difficulty
+      h.photo = @existing_hike.photo 
+      h.dog_friendly =  @existing_hike.dog_friendly
+    end
     @hike.save
+    redirect_to user_path(current_user.id)
    end
 
   private
