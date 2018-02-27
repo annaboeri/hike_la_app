@@ -2,13 +2,14 @@ class HikesController < ApplicationController
   before_action :authorize_hike_view, only: :edit
   def index
     @user = current_user
-    @hikes = Hike.all
+    @hikes = Hike.where :copied = false
 
   end
 
   def show
     @user = current_user
     @hike = Hike.find params[:id]
+
   end
 
   def new
@@ -41,6 +42,10 @@ class HikesController < ApplicationController
   end
 
   def destroy
+    p "destroy action"
+    @hike = Hike.find params[:id] 
+    @hike.destroy
+    redirect_to hikes_path 
   end
 
   def authorize_hike_view
@@ -50,10 +55,17 @@ class HikesController < ApplicationController
     end
   end
 
+  # def create_clone
+  #   p "create clone function ran"
+  #   @hike = Hike.find(params[:id])
+  #   @clone_hike = @hike.clone
+  # end
+
   def create_from_existing
     @user = current_user
     @existing_hike = Hike.find(params[:id])
     @existing_hike.id = nil
+    @existing_hike.
     #create new object with attributes of existing record 
     @hike = @user.hikes.new(@existing_hike.attributes)
     @hike.save

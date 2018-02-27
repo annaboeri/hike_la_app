@@ -1,6 +1,8 @@
 <h1><%= @user.name %>'s Profile</h1>
 <div class="container">
 <h2>Future Hikes:</h2>
+<%= @hike.name %>
+<%= @clone_hike.name %>
 <h2>Hikes Accomplished:</h2>
   <div class="card-deck">
     <% @hikes.each do |h| %>
