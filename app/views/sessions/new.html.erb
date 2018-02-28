@@ -1,17 +1,31 @@
-<div class="row">
-  <div class="col-md-6 offset-md-3">
-    <h1>Log In</h1>
-    <%= form_tag sessions_path do %>
-      <div class="form-group">
-        <label>Email</label>
-        <%= text_field_tag :email, nil, class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <%= password_field_tag :password, nil, class: 'form-control' %>
-      </div>
-      <%= submit_tag 'Log in', class: "btn btn-success" %>
-      <%= link_to "Don't have an account?", new_user_path, class: 'btn btn-primary' %>
-    <% end %>
-  </div>
+<div class="card wow fadeInRight card-body col-md-6 offset-md-3" data-wow-delay="0.3s">
+    <div>
+        <!--Header-->
+        <div class="text-center">
+            <h3 class="white-text"><i class="fa fa-user white-text"></i> Log In:</h3>
+            <hr class="hr-light">
+        </div>
+        <!--Body-->
+        <%= form_tag sessions_path do %>
+        <div class="md-form">
+            <i class="fa fa-envelope prefix white-text active"></i>
+            <%= text_field_tag :email, nil, class: "form-control", placeholder: "Email" , id: "form2" %>
+            <label for="form2" class="active">Your email</label>
+        </div>
+        <div class="md-form">
+            <i class="fa fa-lock prefix white-text active"></i>
+            <%= password_field_tag :password, nil, class: 'form-control', placeholder: "Password", id: "form4" %>
+            <label for="form4" class="active">Your password</label>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-indigo">
+              <%= submit_tag 'Log in' %>
+            </button>
+            <button class="btn btn-indigo">
+              <%= link_to "Don't have an account?", new_user_path, class: 'btn btn-primary' %>
+            </button>
+            <hr class="hr-light mb-3 mt-4">
+        </div>
+        <% end %>
+    </div>
 </div>
