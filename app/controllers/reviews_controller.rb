@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
 
   def create
     @hike = Hike.find params[:id]
-    @review = @hike.reviews.new 
+    @review = @hike.reviews.new(review_params)
     @review.user_id = current_user.id
     if @review.save
       redirect_to hike_path

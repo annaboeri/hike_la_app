@@ -22,11 +22,20 @@ Dog-friendly<br>
 
 <h2>Reviews</h2>
   <% @reviews.each do |r| %>
-    <%= r.body %>
-    <% if @user.id == r.user.id %>
-      <button type="button" class="btn btn-light"><%# link_to "Edit Review", edit_review_path %></button> 
-      <button type="button" class="btn btn-light"><%# link_to "Delete Review", delete_review_path, {method: 'delete', data: {confirm: "Are you sure?"} } %></button> 
-    <% end %>
-  <% end %>
+    <%# need an If statement that only displays reviews with the same hike_id of the show view #%>
+    <ul>
+      <li>Review: <%= r.body %></li><br>
+      <li>Author: <%= r.author %></li><br>
+      User Id: <%= r.user_id %><br>
+      Hike id: <%= r.hike_id %><br>
+      Review id: <%= r.id %><br>
+      <li>
+        <% if @user.id == r.user.id %>
+          <button type="button" class="btn btn-light"><%= link_to "Edit Review", edit_review_path %></button> 
+          <button type="button" class="btn btn-light"><%= link_to "Delete Review", delete_review_path, {method: 'delete', data: {confirm: "Are you sure?"} } %></button> 
+        <% end %>
+      </li>
+    </ul>
+  <% end %>    
 
 

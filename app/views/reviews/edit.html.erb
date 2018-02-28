@@ -1,2 +1,23 @@
-<h1>Reviews#edit</h1>
-<p>Find me in app/views/reviews/edit.html.erb</p>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1>Edit Review</h1>
+    <%= form_for @review do |f| %>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Name</label>
+            <%= f.text_field :author, class: "form-control", placeholder: @review.author %>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Rating</label>
+             <%= f.number_field :hike_rating, class: "form-control", placeholder: @review.hike_rating %>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Review</label>
+             <%= f.text_area :body, class: "form-control", rows: "3", placeholder: @review.body %>
+        </div>
+        <div>
+         <%= submit_tag("Submit") %>
+        </div>
+    <% end %>
+  </div>
+</div>
+<%= @hike %>
