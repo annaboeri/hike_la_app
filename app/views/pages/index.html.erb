@@ -16,7 +16,6 @@
                                     <a href="/hikes" class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Browse Hikes</a>
                                 </div>
                             </div>
-                            
                             <div class="col-md-6 col-xl-5 offset-xl-1">
                                 <!--Form-->
                                 <div class="card wow fadeInRight" data-wow-delay="0.3s">
@@ -26,7 +25,6 @@
                                             <h3 class="white-text"><i class="fa fa-user white-text"></i> Register:</h3>
                                             <hr class="hr-light">
                                         </div>
-
                                         <!--Body-->
                                         <%= form_for @user do |f| %>
                                         <div class="md-form">
@@ -53,7 +51,7 @@
                                         </div>
 
                                         <div class="text-center">
-                                            <button class="btn btn-indigo"><%= f.submit "Sign Up" %></button>
+                                            <%= f.submit "Sign Up", class: "btn btn-indigo" %>
                                             <hr class="hr-light mb-3 mt-4">
                                         </div>
                                         <% end %>

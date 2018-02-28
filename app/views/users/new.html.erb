@@ -1,11 +1,12 @@
-<div class="row">
+
+<div class="row flex-center pt-5 mt-3">
   <div class="col-md-6 offset-md-3">
  <!--Form-->
     <div class="card wow fadeInRight" data-wow-delay="0.3s">
         <div class="card-body">
             <!--Header-->
             <div class="text-center">
-                <h3 class="white-text"><i class="fa fa-user white-text"></i> Register:</h3>
+                <h3 class="white-text"><i class="fa fa-user white-text"></i>Sign Up:</h3>
                 <hr class="hr-light">
             </div>
 
@@ -35,7 +36,7 @@
             </div>
 
             <div class="text-center">
-                <button class="btn btn-indigo"><%= f.submit "Sign Up" %></button>
+                <%= f.submit "Sign Up", class: "btn btn-indigo" %>
                 <hr class="hr-light mb-3 mt-4">
             </div>
           <% end %>
