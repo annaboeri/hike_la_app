@@ -11,7 +11,6 @@ class HikesController < ApplicationController
     @user = current_user
     @hike = Hike.find params[:id]
     @reviews = Review.all 
-
   end
 
   def new

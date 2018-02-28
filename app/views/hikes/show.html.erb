@@ -28,14 +28,15 @@ Dog-friendly<br>
 
 <h2>Reviews</h2>
   <% @reviews.each do |r| %>
-    <%# need an If statement that only displays reviews with the same hike_id of the show view #%>
+    <% if r.hike_id == @hike.id %>
     <ul>
       <li>Review: <%= r.body %></li><br>
       <li>Author: <%= r.author %></li><br>
-      User Id: <%= r.user_id %><br>
-      Hike id: <%= r.hike_id %><br>
-      Review id: <%= r.id %><br>
-      <li>
+      <li>Rating: <%= r.hike_rating %>/5</li><br>
+                  <%# r.hike_rating.to_i.times do %>
+                  <%# octicon "star" %>
+                  <%# end %>
+      </li><br>
         <% if @user != nil and @user.id == r.user_id %>
           <button type="button" class="btn"><%= link_to "Edit Review", edit_review_path(r.id)  %></button> 
           <button type="button" class="btn"><%= link_to "Delete Review", delete_review_path(r.id), {method: 'delete', data: {confirm: "Are you sure?"} } %></button> 
@@ -43,5 +44,6 @@ Dog-friendly<br>
       </li>
     </ul>
   <% end %>    
+<%end %>
 
 

@@ -1,7 +1,7 @@
 <h1>Hikes</h1>
 <div class="container">
    <% @hikes.in_groups_of(2, false).each do |group| %>
-    <div class="row">
+      <div class="row">
         <% group.each do |hike| %>
             <div class="col-md-6">
                 <h2><%= link_to hike.name, hike_path(hike.id) %></h2>
@@ -14,18 +14,12 @@
                 <div class="modal fade" id="<%= hike.name %>" tabindex="-1" role="dialog" aria-labelledby="<%= hike.name %>CenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle"><%= hike.name %></h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
                     <div class="modal-body">
-                        Hike: <%= $modal_hike = hike.attributes %>
+                        <h2><%= hike.name %></h2><br>
                         Address: <%= hike.address %><br>
                         Distance: <%= hike.distance %> miles<br>
                         Difficulty Level:<% case hike.difficulty
-                            when 1 %> Easy
+                               when 1 %> Easy
                             <% when 2 %> Moderate
                             <% when 3 %> Challenging
                             <% when 4 %> Difficult
