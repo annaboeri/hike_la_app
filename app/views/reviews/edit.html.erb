@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-6 offset-md-3">
     <h1>Edit Review</h1>
-    <%= form_for @review do |f| %>
+    <%= form_for @review, url: "/reviews/#{@review.id}" do |f| %>
         <div class="form-group">
             <label for="exampleFormControlInput1">Name</label>
             <%= f.text_field :author, class: "form-control", placeholder: @review.author %>

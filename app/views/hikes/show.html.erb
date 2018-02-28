@@ -14,11 +14,17 @@ Dog-friendly<br>
 <% end %>
 
 <% if @user == @hike.user %>
-<button type="button" class="btn btn-light"><%= link_to "Edit Hike", edit_hike_path %></button> 
-<button type="button" class="btn btn-light"><%= link_to "Delete Hike", delete_hike_path, {method: 'delete', data: {confirm: "Are you sure?"} } %></button> 
+    <button type="button" class="btn">
+        <%= link_to "Edit Hike", edit_hike_path %>
+    </button> 
+    <button type="button" class="btn">
+        <%= link_to "Delete Hike", delete_hike_path, {method: 'delete', data: {confirm: "Are you sure?"} } %>
+    </button> 
 <% end %>
 
-<button type="button" class="btn btn-light"><%= link_to "Review Hike", reviews_path, :id => @hike.id %></button> 
+<% if @user != nil %>
+    <button type="button" class="btn"><%= link_to "Review Hike", reviews_path, :id => @hike.id %></button> 
+<% end %>
 
 <h2>Reviews</h2>
   <% @reviews.each do |r| %>
@@ -30,9 +36,9 @@ Dog-friendly<br>
       Hike id: <%= r.hike_id %><br>
       Review id: <%= r.id %><br>
       <li>
-        <% if @user.id == r.user.id %>
-          <button type="button" class="btn btn-light"><%= link_to "Edit Review", edit_review_path %></button> 
-          <button type="button" class="btn btn-light"><%= link_to "Delete Review", delete_review_path, {method: 'delete', data: {confirm: "Are you sure?"} } %></button> 
+        <% if @user != nil and @user.id == r.user_id %>
+          <button type="button" class="btn"><%= link_to "Edit Review", edit_review_path(r.id)  %></button> 
+          <button type="button" class="btn"><%= link_to "Delete Review", delete_review_path(r.id), {method: 'delete', data: {confirm: "Are you sure?"} } %></button> 
         <% end %>
       </li>
     </ul>

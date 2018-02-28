@@ -11,7 +11,25 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}   
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+a:hover, a:active {
+    text-decoration: none;
+    color: lightgray;
+}
+
+a:link, a:visited .hike-button {
+    color: gray;
+}
+
+a:hover, a:active .hike-button {
+    color: darkslategrey;
+} 
 
 
 .browse-hikes-image {

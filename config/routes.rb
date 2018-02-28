@@ -9,9 +9,10 @@ Rails.application.routes.draw do
     delete '/hikes/:id' => 'hikes#destroy', as: :delete_hike
     get '/hikes/:id/reviews/new' => 'reviews#new', as: :reviews
     post '/hikes/:id/reviews/new' => 'reviews#create', as: :post_review
-    get '/hikes/:id/reviews/:id' => 'reviews#edit', as: :edit_review
+    get '/reviews/:id/edit' => 'reviews#edit', as: :edit_review
     delete '/reviews/:id' => 'reviews#destroy', as: :delete_review
-    patch '/hikes/:id/reviews/:id' => 'reviews#update'
+    patch '/reviews/:id' => 'reviews#update'
+
    
 
 end
