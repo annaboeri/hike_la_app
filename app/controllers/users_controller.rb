@@ -14,8 +14,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      # session[:user_id] = @user.id
       redirect_to new_session_path
     else
+      flash[:warning] = "Check your email and password."
       redirect_to new_user_path
     end
   end

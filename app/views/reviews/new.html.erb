@@ -1,22 +1,23 @@
-<h1>Review Hike</h1>
-
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Name</label>
-    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your name">
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1>Review Hike</h1>
+    <%= form_for @review do |f| %>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Name</label>
+            <%= f.text_field :author, class: "form-control", placeholder: "Name" %>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Rating</label>
+             <%= f.number_field :hike_rating, class: "form-control", placeholder: "1 (Do not recommend) - 5 (Amazing hike!)" %>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Review</label>
+             <%= f.text_area :body, class: "form-control", rows: "3", placeholder: "Your Review Here" %>
+        </div>
+        <div>
+         <%= submit_tag("Submit") %>
+        </div>
+    <% end %>
   </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Rating</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1 - Do not recommend</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5 - Great hike </option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Your review here</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-</form>
+</div>
+<%= @hike %>

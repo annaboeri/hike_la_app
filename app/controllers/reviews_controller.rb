@@ -2,19 +2,18 @@ class ReviewsController < ApplicationController
   before_action :authorize_review_view, only: :edit 
   
   def new
-    @user = current_user
     @hike = Hike.find params[:id]
     @review = @hike.reviews.new
   end
 
   def create
-    @user = current_user
     @hike = Hike.find params[:id]
-    @review = @hike.reviews.new review_params
+    @review = @hike.reviews.new 
+    @review.user_id = current_user.id
     if @review.save
-      redirect_to hikes_path
+      redirect_to hike_path
     else
-      redirect_to new_review_path
+      redirect_to reviews_path
     end
   end
 
@@ -46,7 +45,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-     return params.require(:review).permit(:body, :author, :rating)
+     return params.require(:review).permit(:body, :author, :hike_rating)
    end
 
 end

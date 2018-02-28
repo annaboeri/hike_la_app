@@ -19,9 +19,11 @@ Dog-friendly<br>
 <% end %>
 
 <h2>Reviews</h2>
+
 <%# @reviews.each do |r| %>
   <%# r.body %>
 <%# end %>
+<button type="button" class="btn btn-light"><%= link_to "Review Hike", reviews_path, :id => @hike.id %></button> 
 
 <%# if @user == @review.user %>
 <button type="button" class="btn btn-light"><%# link_to "Edit Review", edit_review_path %></button> 

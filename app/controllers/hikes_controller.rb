@@ -56,11 +56,6 @@ class HikesController < ApplicationController
     end
   end
 
-  # def create_clone
-  #   p "create clone function ran"
-  #   @hike = Hike.find(params[:id])
-  #   @clone_hike = @hike.clone
-  # end
 
   def create_from_existing
     @user = current_user
