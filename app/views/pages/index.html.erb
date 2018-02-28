@@ -1,2 +1,69 @@
-<h1>Hike LA</h1>
-<h2></h2>
+
+<body>                     
+    <header>
+                        <!--Intro Section-->
+        <section class="view intro-2 hm-gradient">
+            <div class="full-bg-img">
+                <div class="container flex-center">
+                    <div class="d-flex align-items-center content-height">
+                        <div class="row flex-center pt-5 mt-3">
+                            <div class="col-md-6 text-center text-md-left mb-5">
+                                <div class="white-text">
+                                    <h1 class="h1-responsive font-weight-bold wow fadeInLeft" data-wow-delay="0.3s">Sign up right now! </h1>
+                                    <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+                                    <h6 class="wow fadeInLeft" data-wow-delay="0.3s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae, quisquam iste, maiores. Nulla.</h6>
+                                    <br>
+                                    <a class="btn btn-outline-white wow fadeInLeft" data-wow-delay="0.3s">Learn more</a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 col-xl-5 offset-xl-1">
+                                <!--Form-->
+                                <div class="card wow fadeInRight" data-wow-delay="0.3s">
+                                    <div class="card-body">
+                                        <!--Header-->
+                                        <div class="text-center">
+                                            <h3 class="white-text"><i class="fa fa-user white-text"></i> Register:</h3>
+                                            <hr class="hr-light">
+                                        </div>
+
+                                        <!--Body-->
+                                        <%= form_for @user do |f| %>
+                                        <div class="md-form">
+                                            <i class="fa fa-user prefix white-text active"></i>
+                                                <%= f.text_field :name, class: "form-control", placeholder: "Name", id: "form3" %>
+                                            <label for="form3" class="active">Your name</label>
+                                            
+                                        </div>
+                                        <div class="md-form">
+                                            <i class="fa fa-envelope prefix white-text active"></i>
+                                            <%= f.text_field :email, class: "form-control", placeholder: "Email" , id: "form2" %>
+                                            <label for="form2" class="active">Your email</label>
+                                        </div>
+
+                                        <div class="md-form">
+                                            <i class="fa fa-lock prefix white-text active"></i>
+                                            <%= f.password_field :password, class: "form-control", placeholder: "Password", id: "form4" %>
+                                            <label for="form4" class="active">Your password</label>
+                                        </div>
+                                        <div class="md-form">
+                                            <i class="fa fa-lock prefix white-text active"></i>
+                                            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %>
+                                            <label for="form4" class="active">Confirm password</label>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <button class="btn btn-indigo"><%= f.submit "Sign Up" %></button>
+                                            <hr class="hr-light mb-3 mt-4">
+                                        </div>
+                                        <% end %>
+                                    </div>
+                                </div>
+                                <!--/.Form-->
+                        </div>
+                    </div>
+                 </div>
+            </div>
+         </section>
+    </header>
+</body>
