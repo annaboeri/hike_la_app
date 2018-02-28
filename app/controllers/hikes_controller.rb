@@ -10,7 +10,7 @@ class HikesController < ApplicationController
   def show
     @user = current_user
     @hike = Hike.find params[:id]
-    @review = Review.all 
+    @reviews = Review.all 
 
   end
 

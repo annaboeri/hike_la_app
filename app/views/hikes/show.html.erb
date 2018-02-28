@@ -18,14 +18,15 @@ Dog-friendly<br>
 <button type="button" class="btn btn-light"><%= link_to "Delete Hike", delete_hike_path, {method: 'delete', data: {confirm: "Are you sure?"} } %></button> 
 <% end %>
 
-<h2>Reviews</h2>
-
-<%# @reviews.each do |r| %>
-  <%# r.body %>
-<%# end %>
 <button type="button" class="btn btn-light"><%= link_to "Review Hike", reviews_path, :id => @hike.id %></button> 
 
-<%# if @user == @review.user %>
-<button type="button" class="btn btn-light"><%# link_to "Edit Review", edit_review_path %></button> 
-<button type="button" class="btn btn-light"><%# link_to "Delete Review", delete_review_path, {method: 'delete', data: {confirm: "Are you sure?"} } %></button> 
-<%# end %>
+<h2>Reviews</h2>
+  <% @reviews.each do |r| %>
+    <%= r.body %>
+    <% if @user.id == r.user.id %>
+      <button type="button" class="btn btn-light"><%# link_to "Edit Review", edit_review_path %></button> 
+      <button type="button" class="btn btn-light"><%# link_to "Delete Review", delete_review_path, {method: 'delete', data: {confirm: "Are you sure?"} } %></button> 
+    <% end %>
+  <% end %>
+
+
