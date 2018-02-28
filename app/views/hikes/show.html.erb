@@ -32,10 +32,14 @@ Dog-friendly<br>
     <ul>
       <li>Review: <%= r.body %></li><br>
       <li>Author: <%= r.author %></li><br>
-      <li>Rating: <%= r.hike_rating %>/5</li><br>
-                  <%# r.hike_rating.to_i.times do %>
-                  <%# octicon "star" %>
-                  <%# end %>
+      <li>Rating: <% r.hike_rating.times do %>
+                  <i class="fas fa-star"></i>
+                  <% end %>                  
+                  <% (5 - r.hike_rating).times do %>
+                  <i class="far fa-star"></i>
+                  <% end %>
+                  </li><br>
+
       </li><br>
         <% if @user != nil and @user.id == r.user_id %>
           <button type="button" class="btn"><%= link_to "Edit Review", edit_review_path(r.id)  %></button> 

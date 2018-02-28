@@ -6,33 +6,32 @@
         <div class="card-body">
             <!--Header-->
             <div class="text-center">
-                <h3 class="white-text"><i class="fa fa-user white-text"></i>Sign Up:</h3>
+                <h3 class="white-text">Sign Up:</h3>
                 <hr class="hr-light">
             </div>
 
             <!--Body-->
             <%= form_for @user do |f| %>
             <div class="md-form">
-                <i class="fa fa-user prefix white-text active"></i>
                   <%= f.text_field :name, class: "form-control", placeholder: "Name", id: "form3" %>
-                <label for="form3" class="active">Your name</label>
+                <label for="form3" class="active"></label>
                 
             </div>
             <div class="md-form">
-                <i class="fa fa-envelope prefix white-text active"></i>
+      
                 <%= f.text_field :email, class: "form-control", placeholder: "Email" , id: "form2" %>
-                <label for="form2" class="active">Your email</label>
+                <label for="form2" class="active"></label>
             </div>
 
             <div class="md-form">
-                <i class="fa fa-lock prefix white-text active"></i>
+            
                 <%= f.password_field :password, class: "form-control", placeholder: "Password", id: "form4" %>
-                <label for="form4" class="active">Your password</label>
+                <label for="form4" class="active"></label>
             </div>
             <div class="md-form">
-                <i class="fa fa-lock prefix white-text active"></i>
+ 
                 <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password" %>
-                <label for="form4" class="active">Confirm password</label>
+                <label for="form4" class="active"></label>
             </div>
 
             <div class="text-center">

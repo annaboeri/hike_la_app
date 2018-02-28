@@ -30,7 +30,7 @@
                         <% end %>
                     </div>
                     <div class="modal-footer">
-                         <%= render '/partials/add_to_profile_buttons' %>
+                         <%= button_to "Add To Profile", :class => "btn btn-secondary", :action => "create_from_existing", :id => $modal_hike["id"] %>
                     </div>
                     </div>
                 </div>
