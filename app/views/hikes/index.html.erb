@@ -52,7 +52,9 @@
                                 <% end %>
                             </div>
                             <div class="modal-footer">
-                                <%= button_to "Add To Profile", :action => "create_from_existing", :id => hike.id%>
+                                <% if @current_user %>
+                                    <%= button_to "Add To Profile", :action => "create_from_existing", :id => hike.id %>
+                                <% end %>
                             </div>
                             </div>
                         </div>
