@@ -56,11 +56,11 @@
                                     <i class="far fa-star"></i>
                                     <% end %>
                                     </p>
-                        <hr class="hr-light">
                         <% if @user != nil and @user.id == r.user_id %>
                             <button type="button" class="btn"><%= link_to "Delete Review", delete_review_path(r.id), {method: 'delete', data: {confirm: "Are you sure?"} } %></button> 
                             <button type="button" class="btn"><%= link_to "Edit Review", edit_review_path(r.id)  %></button> 
                         <% end %>
+                    <hr class="hr-light">
                 <%end %>
                 <% end %>
             </div>

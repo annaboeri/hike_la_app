@@ -28,14 +28,14 @@ class ReviewsController < ApplicationController
     if @review.update(review_params)
       redirect_to hikes_path
     else
-      redirect_to hike_path(@hike.id)
+      redirect_to edit_review_path(@review.id)
     end
   end
 
   def destroy
     @review = Review.find params[:id] 
     @review.destroy
-    redirect_to hikes_path 
+    redirect_to hikes_path
   end
 
   def authorize_review_view
