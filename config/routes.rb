@@ -13,6 +13,5 @@ Rails.application.routes.draw do
     delete '/reviews/:id' => 'reviews#destroy', as: :delete_review
     patch '/reviews/:id' => 'reviews#update'
 
-   
 
 end

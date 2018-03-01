@@ -1,23 +1,27 @@
 class HikesController < ApplicationController
   before_action :authorize_hike_view, only: :edit
+  
   def index
     @user = current_user
     @hikes = Hike.where(duplicate: nil)
     @reviews = Review.all
-
+    # below displays matching hikes
+    if params[:search]
+      @hikes = Hike.search(params[:search])
+    else
+      @hikes = Hike.all
+    end
   end
 
   def show
     @user = current_user
     @hike = Hike.find params[:id]
-
     if @hike.original_hike_id
       @original_hike = Hike.find @hike.original_hike_id
       @reviews = @original_hike.reviews
     else
       @reviews = @hike.reviews
     end
-
   end
 
   def new
@@ -41,7 +45,6 @@ class HikesController < ApplicationController
 
   def update
     @hike = Hike.find params[:id] 
-
     if @hike.update(hike_params)
       redirect_to hikes_path
     else
