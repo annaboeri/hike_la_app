@@ -13,9 +13,9 @@ class UsersController < ApplicationController
   end
 
   def create
+  # sign up
     @user = User.new(user_params)
     if @user.save
-      # session[:user_id] = @user.id
       redirect_to new_session_path
     else
       flash[:warning] = "Check your email and password."
