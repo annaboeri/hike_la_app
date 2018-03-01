@@ -10,7 +10,14 @@ class HikesController < ApplicationController
   def show
     @user = current_user
     @hike = Hike.find params[:id]
-    @reviews = Review.all 
+
+    if @hike.original_hike_id
+      @original_hike = Hike.find @hike.original_hike_id
+      @reviews = @original_hike.reviews
+    else
+      @reviews = @hike.reviews
+    end
+
   end
 
   def new
@@ -45,7 +52,7 @@ class HikesController < ApplicationController
   def destroy
     @hike = Hike.find params[:id] 
     @hike.destroy
-    redirect_to hikes_path 
+    redirect_to user_path 
   end
 
   def authorize_hike_view
@@ -55,19 +62,17 @@ class HikesController < ApplicationController
     end
   end
 
-
   def create_from_existing
     @user = current_user
     @existing_hike = Hike.find(params[:id])
     @hike = @user.hikes.new do |h|
-      h.id = nil
-      h.duplicate = true
       h.name =  @existing_hike.name
       h.address =  @existing_hike.address
       h.distance =  @existing_hike.distance
       h.difficulty =  @existing_hike.difficulty
       h.photo = @existing_hike.photo 
       h.dog_friendly =  @existing_hike.dog_friendly
+      h.original_hike_id = @existing_hike.id
     end
     @hike.save
     redirect_to user_path(current_user.id)

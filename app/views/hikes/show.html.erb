@@ -1,53 +1,64 @@
-<h1><%= @hike.name %></h1>
-<img src="<%= @hike.photo %>"><br>
-Address: <%= @hike.address %><br>
-Distance: <%= @hike.distance %> miles<br>
-Difficulty Level:<% case @hike.difficulty
-    when 1 %> Easy
-    <% when 2 %> Moderate
-    <% when 3 %> Challenging
-    <% when 4 %> Difficult
-    <% when 5 %> Very Difficult
-    <% end %><br>
-<% if @hike.dog_friendly == true %>
-Dog-friendly<br>
-<% end %>
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <h1><%= @hike.name %></h1>
+            <br><iframe
+              width="600"
+              height="450"
+              frameborder="0" style="border:0"
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCXBzHZGSJvP2EM0vLocnJGMK_0loTXJ8I 
+                &q=<%= @hike.address %>" allowfullscreen>
+            </iframe><br>
+            <b>Address: </b><%= @hike.address %><br>
+            <b>Distance: </b><%= @hike.distance %> miles<br>
+            <b>Difficulty Level: </b><% case @hike.difficulty
+                when 1 %> Easy
+                <% when 2 %> Moderate
+                <% when 3 %> Challenging
+                <% when 4 %> Difficult
+                <% when 5 %> Very Difficult
+                <% end %><br>
+            <% if @hike.dog_friendly == true %>
+            Dog-friendly  <i class="fas fa-check"></i><br>
+            <% end %>
 
-<% if @user == @hike.user %>
-    <button type="button" class="btn">
-        <%= link_to "Edit Hike", edit_hike_path %>
-    </button> 
-    <button type="button" class="btn">
-        <%= link_to "Delete Hike", delete_hike_path, {method: 'delete', data: {confirm: "Are you sure?"} } %>
-    </button> 
-<% end %>
+            <% if @user == @hike.user %>
+                <button type="button" class="btn">
+                    <%= link_to "Edit Hike", edit_hike_path %>
+                </button> 
+                <button type="button" class="btn">
+                    <%= link_to "Delete Hike", delete_hike_path, {method: 'delete', data: {confirm: "Are you sure?"} } %>
+                </button> 
+            <% end %>
+            <% if @user != nil %>
+                <button type="button" class="btn"><%= link_to "Review Hike", reviews_path, :id => @hike.id %></button> 
+            <% end %>
+        </div>
+        <div class="col-md">
+            <% if @reviews.length > 0 %>
+              <h2>Reviews</h2>
+                <% @reviews.each do |r| %>
+                  <ul>
+                    <li><b>Review: </b><%= r.body %></li><br>
+                    <li><b>Author: </b><%= r.author %></li><br>
+                    <li><b>Rating: </b><% r.hike_rating.times do %>
+                                <i class="fas fa-star"></i>
+                                <% end %>                  
+                                <% (5 - r.hike_rating).times do %>
+                                <i class="far fa-star"></i>
+                                <% end %>
+                                </li><br>
 
-<% if @user != nil %>
-    <button type="button" class="btn"><%= link_to "Review Hike", reviews_path, :id => @hike.id %></button> 
-<% end %>
-
-<h2>Reviews</h2>
-  <% @reviews.each do |r| %>
-    <% if r.hike_id == @hike.id %>
-    <ul>
-      <li>Review: <%= r.body %></li><br>
-      <li>Author: <%= r.author %></li><br>
-      <li>Rating: <% r.hike_rating.times do %>
-                  <i class="fas fa-star"></i>
-                  <% end %>                  
-                  <% (5 - r.hike_rating).times do %>
-                  <i class="far fa-star"></i>
-                  <% end %>
-                  </li><br>
-
-      </li><br>
-        <% if @user != nil and @user.id == r.user_id %>
-          <button type="button" class="btn"><%= link_to "Edit Review", edit_review_path(r.id)  %></button> 
-          <button type="button" class="btn"><%= link_to "Delete Review", delete_review_path(r.id), {method: 'delete', data: {confirm: "Are you sure?"} } %></button> 
-        <% end %>
-      </li>
-    </ul>
-  <% end %>    
-<%end %>
-
+                    </li><br>
+                      <% if @user != nil and @user.id == r.user_id %>
+                        <button type="button" class="btn"><%= link_to "Delete Review", delete_review_path(r.id), {method: 'delete', data: {confirm: "Are you sure?"} } %></button> 
+                        <button type="button" class="btn"><%= link_to "Edit Review", edit_review_path(r.id)  %></button> 
+                      <% end %>
+                    </li>
+                  </ul> 
+              <%end %>
+            <% end %>
+        </div>
+    </div>
+</div>
 

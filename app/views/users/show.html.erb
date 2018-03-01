@@ -1,25 +1,27 @@
-<h1><%= @user.name %>'s Profile</h1>
-<div class="container">
-<h2>Future Hikes:</h2>
+<% if @user.name.last == "s" || @user.name.last == "S" %>
+      <h1><%= @user.name %>' Profile</h1>
+<% else %>
+     <h1><%= @user.name %>'s Profile</h1>
+<% end %>
 
+<div class="container">
 <h2>Hikes Accomplished:</h2>
- <% @hikes.in_groups_of(3, false).each do |group| %>
-  <div class="card-deck">
-    <div class="row">
-        <% group.each do |h| %>
-            <div class="col-md-3">
-              <div class="card user-profile-card">
-                <img class="card-img-top" src="<%= h.photo %>" alt="Card image cap">
-                  <div class="card-body">
-                   <h5 class="card-title"><%= link_to h.name, hike_path(h.id) %></h5>
-                   <p class="card-text"><small class="text-muted">Completed date</small></p>
-                  </div>
+  <% @hikes.in_groups_of(3, false).each do |group| %>
+    <div class="card-deck">
+      <div class="row">
+          <% group.each do |h| %>
+              <div class="col-md-3">
+                <div class="card user-profile-card">
+                  <img class="card-img-top" src="<%= h.photo %>" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title"><%= link_to h.name, hike_path(h.id) %></h5>
+                    </div>
+                </div>
               </div>
-            </div>
-        <% end %>
+          <% end %>
+      </div>
     </div>
-  </div>
- <% end %>
+  <% end %>
    
 
  

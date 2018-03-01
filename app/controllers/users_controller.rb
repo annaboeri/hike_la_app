@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @hikes = @user.hikes
+    @all_hikes = Hike.all
   end
 
   def new

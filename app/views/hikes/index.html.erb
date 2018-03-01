@@ -1,43 +1,53 @@
-<h1>Hikes</h1>
-<div class="container">
-   <% @hikes.in_groups_of(2, false).each do |group| %>
-      <div class="row">
-        <% group.each do |hike| %>
-            <div class="col-md-6">
-                <h2><%= link_to hike.name, hike_path(hike.id) %></h2>
-                <img src="<%= hike.photo %>" class="browse-hikes-image"><br>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-indigo modal-button" data-toggle="modal" data-target="#<%= hike.name %>">
-                See details
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="<%= hike.name %>" tabindex="-1" role="dialog" aria-labelledby="<%= hike.name %>CenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                    <div class="modal-body">
-                        <h2><%= hike.name %></h2><br>
-                        Address: <%= hike.address %><br>
-                        Distance: <%= hike.distance %> miles<br>
-                        Difficulty Level:<% case hike.difficulty
-                               when 1 %> Easy
-                            <% when 2 %> Moderate
-                            <% when 3 %> Challenging
-                            <% when 4 %> Difficult
-                            <% when 5 %> Very Difficult
-                        <% end %><br>
-                        <% if hike.dog_friendly == true %>
-                        Dog-friendly 
-                        <% end %>
-                    </div>
-                    <div class="modal-footer">
-                         <%= button_to "Add To Profile", :class => "btn btn-secondary", :action => "create_from_existing", :id => $modal_hike["id"] %>
-                    </div>
+<div class="row flex-center pt-3 mt-3">
+    <h1 class="hike-index-heading">Popular Hikes</h1>
+    <div class="container">
+    <% @hikes.in_groups_of(2, false).each do |group| %>
+        <div class="row">
+            <% group.each do |hike| %>
+                <div class="col-md-6">
+                    <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="<%= hike.photo %>" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= link_to hike.name, hike_path(hike.id) %></h5>
+                        <button type="button" class="btn btn-indigo" data-toggle="modal" data-target="#<%= hike.name %>">
+                            See details
+                        </button>
+                        <button type="button" class="btn btn-indigo">
+                            Add to Profile<%# button_to "Add To Profile", :class => "btn btn-indigo", :action => "create_from_existing", :id => $modal_hike["id"] %>
+                        </button>
+
                     </div>
                 </div>
-                </div>  
-                <!-- Modal -->  
+               
+                    <!-- Modal -->
+                    <div class="modal fade" id="<%= hike.name %>" tabindex="-1" role="dialog" aria-labelledby="<%= hike.name %>CenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <div class="modal-body">
+                            <h2><%= hike.name %></h2><br>
+                            <b>Address:</b> <%= hike.address %><br>
+                            <b>Distance:</b> <%= hike.distance %> miles<br>
+                            <b>Difficulty Level:</b><% case hike.difficulty
+                                when 1 %> Easy
+                                <% when 2 %> Moderate
+                                <% when 3 %> Challenging
+                                <% when 4 %> Difficult
+                                <% when 5 %> Very Difficult
+                            <% end %><br>
+                            <% if hike.dog_friendly == true %>
+                            Dog-friendly 
+                            <% end %>
+                        </div>
+                        <div class="modal-footer">
+                            <%= button_to "Add To Profile", :action => "create_from_existing", :id => hike.id %>
+                        </div>
+                        </div>
+                    </div>
+                    </div>  
+                    <!-- Modal -->  
+            </div>
+        <% end %>
         </div>
-      <% end %>
+    <% end %>
     </div>
-  <% end %>
 </div>
