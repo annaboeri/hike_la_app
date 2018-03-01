@@ -22,15 +22,14 @@
                                     <div class="card-body">
                                         <!--Header-->
                                         <div class="text-center">
-                                            <h3 class="white-text">Register:</h3>
+                                            <h3 class="white-text">Create Account:</h3>
                                             <hr class="hr-light">
                                         </div>
                                         <!--Body-->
                                         <%= form_for @user do |f| %>
                                         <div class="md-form">
-                                                <%= f.text_field :name, class: "form-control", placeholder: "Name", id: "form3" %>
+                                                <%= f.text_field :name, class: "form-control", placeholder: "Name", id: "form3"%>
                                             <label for="form3" class="active"></label>
-                                            
                                         </div>
                                         <div class="md-form">
                                             <%= f.text_field :email, class: "form-control", placeholder: "Email" , id: "form2" %>

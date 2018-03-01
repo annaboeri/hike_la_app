@@ -7,7 +7,7 @@
 <div class="container ">
   <h2>Hikes I've Completed:</h2>
     <% if @hikes.length == 0 %>
-    <h2>No hikes completed yet.</h2>
+    <br><h3>No hikes completed yet. <i class="far fa-frown"></i></h3>
     <% end %>
     <% @hikes.in_groups_of(2, false).each do |group| %>
          <div class="row">
