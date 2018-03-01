@@ -5,7 +5,10 @@
       <h1 class="hike-index-heading"><%= @user.name %>'s Profile</h1>
   <% end %>
 <div class="container ">
-  <h2>Hikes Accomplished:</h2>
+  <h2>Hikes I've Completed:</h2>
+    <% if @hikes.length == 0 %>
+    <h2>No hikes completed yet.</h2>
+    <% end %>
     <% @hikes.in_groups_of(2, false).each do |group| %>
          <div class="row">
             <% group.each do |h| %>
