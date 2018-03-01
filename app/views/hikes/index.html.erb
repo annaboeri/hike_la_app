@@ -15,7 +15,7 @@
                         <img class="card-img-top" src="<%= hike.photo %>" alt="Card image cap">
                             <div class="card-body">
                             <h5 class="card-title"><%= link_to hike.name, hike_path(hike.id) %></h5>
-                            <button type="button" class="btn btn-indigo" data-toggle="modal" data-target="#<%= hike.name %>">
+                            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#<%= hike.name %>">
                                 See details
                             </button>
                             <!-- Add to profile button
@@ -52,7 +52,7 @@
                                 <% end %>
                             </div>
                             <div class="modal-footer">
-                                <%= button_to "Add To Profile", :action => "create_from_existing", :id => hike.id %>
+                                <%= button_to "Add To Profile", :action => "create_from_existing", :id => hike.id%>
                             </div>
                             </div>
                         </div>
