@@ -3,13 +3,10 @@ class HikesController < ApplicationController
   
   def index
     @user = current_user
-    @hikes = Hike.where(duplicate: nil)
+    @hikes = Hike.where(original_hike_id: nil)
     @reviews = Review.all
-    # below displays matching hikes
     if params[:search]
       @hikes = Hike.search(params[:search])
-    else
-      @hikes = Hike.all
     end
   end
 
