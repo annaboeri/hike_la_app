@@ -6,7 +6,7 @@ class HikesController < ApplicationController
     @hikes = Hike.where(original_hike_id: nil)
     @reviews = Review.all
     if params[:search]
-      @hikes = Hike.search(params[:search])
+      @hikes = Hike.search(params[:search]).where(original_hike_id: nil)
     end
   end
 
