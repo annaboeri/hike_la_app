@@ -54,7 +54,6 @@ input {
 
 }
 
-
 .nav-link:hover {
     color: lightsteelblue;
 }
@@ -98,5 +97,10 @@ h6 {
     .full-height header .view {
         height: 1040px; 
     } 
-}                    
+}   
+
+iframe {
+   border-radius: 10px;
+}
+
              

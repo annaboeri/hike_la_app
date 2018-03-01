@@ -24,13 +24,19 @@
                             --> 
                         </div>
                     </div>
-                
                         <!-- Modal -->
                         <div class="modal fade" id="<%= hike.name %>" tabindex="-1" role="dialog" aria-labelledby="<%= hike.name %>CenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                             <div class="modal-body">
                                 <h2><%= hike.name %></h2><br>
+                                 <iframe
+                                    width="460"
+                                    height="300"
+                                    frameborder="0" style="border:0"
+                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCXBzHZGSJvP2EM0vLocnJGMK_0loTXJ8I 
+                                        &q=<%= hike.address %>" allowfullscreen>
+                                </iframe><br>
                                 <b>Address:</b> <%= hike.address %><br>
                                 <b>Distance:</b> <%= hike.distance %> miles<br>
                                 <b>Difficulty Level:</b><% case hike.difficulty
