@@ -65,17 +65,22 @@ class HikesController < ApplicationController
   def create_from_existing
     @user = current_user
     @existing_hike = Hike.find(params[:id])
-    @hike = @user.hikes.new do |h|
-      h.name =  @existing_hike.name
-      h.address =  @existing_hike.address
-      h.distance =  @existing_hike.distance
-      h.difficulty =  @existing_hike.difficulty
-      h.photo = @existing_hike.photo 
-      h.dog_friendly =  @existing_hike.dog_friendly
-      h.original_hike_id = @existing_hike.id
+    if @user.hikes.find_by original_hike_id: @existing_hike.id 
+      flash[:warning] = "You have already added this hike to your profile"
+      redirect_to hikes_path
+    else
+      @hike = @user.hikes.new do |h|
+        h.name =  @existing_hike.name
+        h.address =  @existing_hike.address
+        h.distance =  @existing_hike.distance
+        h.difficulty =  @existing_hike.difficulty
+        h.photo = @existing_hike.photo 
+        h.dog_friendly =  @existing_hike.dog_friendly
+        h.original_hike_id = @existing_hike.id
+      end
+      @hike.save
+      redirect_to user_path(current_user.id)
     end
-    @hike.save
-    redirect_to user_path(current_user.id)
    end
 
   private

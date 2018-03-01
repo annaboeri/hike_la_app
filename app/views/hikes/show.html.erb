@@ -46,8 +46,8 @@
                 <h2>Reviews</h2>
                    <hr class="hr-light">
                     <% @reviews.each do |r| %>
-                        <p><b>Review: </b><%= r.body %></p>
                         <p><b>Author: </b><%= r.author %></p>
+                        <p><b>Review: </b><%= r.body %></p>
                         <p><b>Rating: </b><% r.hike_rating.times do %>
                                     <i class="fas fa-star"></i>
                                     <% end %>                  
