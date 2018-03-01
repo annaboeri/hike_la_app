@@ -3,4 +3,3 @@
 //= link_directory ../stylesheets .css
 
 
-new WOW().init();     

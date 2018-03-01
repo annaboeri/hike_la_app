@@ -6,16 +6,17 @@
             <% group.each do |hike| %>
                 <div class="col-md-6">
                     <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="<%= hike.photo %>" alt="Card image cap">
-                    <div class="card-body">
+                      <img class="card-img-top" src="<%= hike.photo %>" alt="Card image cap">
+                        <div class="card-body">
                         <h5 class="card-title"><%= link_to hike.name, hike_path(hike.id) %></h5>
                         <button type="button" class="btn btn-indigo" data-toggle="modal" data-target="#<%= hike.name %>">
                             See details
                         </button>
+                         <!-- Add to profile button
                         <button type="button" class="btn btn-indigo">
                             Add to Profile<%# button_to "Add To Profile", :class => "btn btn-indigo", :action => "create_from_existing", :id => $modal_hike["id"] %>
                         </button>
-
+                         --> 
                     </div>
                 </div>
                
