@@ -65,7 +65,7 @@ class HikesController < ApplicationController
   def create_from_existing
     @user = current_user
     @existing_hike = Hike.find(params[:id])
-    if @user.hikes.find_by original_hike_id: @existing_hike.id 
+    if @user.hikes.find_by original_hike_id: @existing_hike.id
       flash[:warning] = "You have already added this hike to your profile"
       redirect_to hikes_path
     else
