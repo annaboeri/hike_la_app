@@ -1,24 +1,16 @@
-# README
+# HIKE LA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![game screenshot](hikela-screenshot.png) 
 
-Things you may want to cover:
+#### Overview
 
-* Ruby version
+### Explore hikes in the LA area, add hikes you've completed to your profile, and review hikes you've been on.
 
-* System dependencies
+#### Technologies Used
 
-* Configuration
++ Ruby on Rails
++ HTML5
++ CSS3
++ Bootstrap
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Future Work
