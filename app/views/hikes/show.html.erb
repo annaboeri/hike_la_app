@@ -31,10 +31,12 @@
                     <% if @user == @hike.user %>
                         <button type="button" class="btn">
                             <%= link_to "Edit Hike", edit_hike_path %>
-                        </button> 
+                        </button>
+                        <% if @hike.original_hike_id %>
                         <button type="button" class="btn">
                             <%= link_to "Delete Hike", delete_hike_path, {method: 'delete', data: {confirm: "Are you sure?"} } %>
                         </button> 
+                        <% end %>
                     <% end %>
                     <% if @user != nil %>
                         <button type="button" class="btn"><%= link_to "Review Hike", reviews_path, :id => @hike.id %></button> 
