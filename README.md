@@ -1,6 +1,6 @@
 # HIKE LA
 
-![game screenshot](hikela-screenshot.png) 
+![app screenshot](hikela-screenshot.png) 
 
 #### Overview
 
