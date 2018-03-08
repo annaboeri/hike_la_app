@@ -28,11 +28,9 @@
                             </li>
                             <% end %>
                         </ul>
-                  
-                  
+                        
                         <%= form_tag(hikes_path, :method => "get", id: "search-form", class: 'navbar-form navbar-right') do %>
                             <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: "Search Hikes" %>
-                            <%# submit_tag "Search", :name => nil %>
                         <% end %>
                        
                     </div>

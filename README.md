@@ -12,6 +12,8 @@
 + HTML5
 + CSS3
 + Bootstrap
++ Font Awesome 
++ Google Maps API 
 
 #### Future Work
 
