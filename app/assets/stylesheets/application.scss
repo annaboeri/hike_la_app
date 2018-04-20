@@ -21,7 +21,7 @@ body, html {
 
 a:link, a:visited {
     text-decoration: none;
-    color: gray;
+    color: lightsteelblue;
 }
 
 a:hover, a:active {
@@ -55,16 +55,17 @@ input {
 }   
 
 .navbar-light li {
-    color: white;
+    color: lightsteelblue;
     list-style-type: none;
 }
 
 .nav-link {
-    color: white;
+    color: lightsteelblue;
+    font-size: 18px;
 }
 
 .nav-link:hover {
-    color: lightsteelblue;
+    color: white;
 }
 
 .top-nav-collapse {
