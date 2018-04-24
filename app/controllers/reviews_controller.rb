@@ -38,13 +38,13 @@ class ReviewsController < ApplicationController
     redirect_to hikes_path
   end
 
-  # only display reviews if user is logged in:
-  # def authorize_review_view
-  #   @review = Review.find params[:id]
-  #   if @review.user_id != current_user.id
-  #     redirect_to hikes_path
-  #   end
-  # end
+
+  def authorize_review_view
+    @review = Review.find params[:id]
+    if @review.user_id != current_user.id
+      redirect_to hikes_path
+    end
+  end
 
   private
   def review_params

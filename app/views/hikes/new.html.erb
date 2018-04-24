@@ -16,7 +16,7 @@
       </div>
        <div class="form-group">
         <label>Difficuly Level</label>
-        <%= f.text_field :difficulty, class: "form-control", placeholder: "1 (Beginner) - 5 (Advanced)" %>
+        <%= f.text_field :difficulty, class: "form-control", min: "1", max: "5", placeholder: "1 (Beginner) - 5 (Advanced)" %>
       </div>
        <div class="form-group">
         <label>Photo</label>
