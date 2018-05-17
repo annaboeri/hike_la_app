@@ -6,6 +6,15 @@ body, html {
     z-index: 1;
 }
 
+input {
+    border: none;
+    background: none;
+}
+
+.btn-light {
+    border-color: rgb(171, 171, 171);
+}
+
 .container {
     padding-bottom: 5%;
 }
