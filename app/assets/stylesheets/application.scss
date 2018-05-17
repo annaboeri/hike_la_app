@@ -119,6 +119,19 @@ input {
     background-color: rgba(229, 228, 255, 0.2);
 }
 
+.profile-card {
+    width: 80%;
+    height: 24rem;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: rgba(229, 228, 255, 0.2); 
+}
+
+.profile-h2 {
+    margin: 2rem auto;
+    text-align: center;
+}
+
 .md-form .prefix {
     font-size: 1.5rem;
     margin-top: 1rem;

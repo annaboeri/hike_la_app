@@ -6,7 +6,7 @@
   <% end %>
 <div class="container ">
    <hr class="hr-light mb-3 mt-4">
-  <h2>Hikes I've Completed:</h2>
+  <h2 class="profile-h2">My Favorite Hikes:</h2>
     <% if @hikes.length == 0 %>
     <br><h3>No hikes completed yet. <i class="far fa-frown"></i></h3>
     <% end %>
@@ -14,7 +14,7 @@
          <div class="row">
             <% group.each do |h| %>
                 <div class="col-md-6">
-                  <div class="card" style="width: 18rem;">
+                  <div class="profile-card">
                     <img class="card-img-top" src="<%= h.photo %>" alt="Card image cap">
                       <div class="card-body">
                       <h5 class="card-title"><%= link_to h.name, hike_path(h.id) %></h5>
