@@ -4,7 +4,10 @@ body, html {
     height: 100%;
     background-color: #b6caca;
     z-index: 1;
-    padding-bottom: 20px;
+}
+
+.container {
+    padding-bottom: 5%;
 }
 
 .hike-index-heading {
@@ -109,7 +112,9 @@ input {
 }   
 
 .card {
-    margin: 30px auto;
+    width: 80%;
+    height: 27rem;
+    margin: 10px auto;
     padding: 20px;
     background-color: rgba(229, 228, 255, 0.2);
 }
